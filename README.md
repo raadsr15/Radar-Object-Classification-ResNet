@@ -1,6 +1,10 @@
 # Radar Object Classification with ResNet50
 
-This repository implements an end-to-end pipeline for classifying objects (Cars, Drones, and People) from FMCW radar range-Doppler spectrograms using deep learning (ResNet50). The workflow spans raw radar matrix conversion, visualization, dataset flattening and splitting, model training, and evaluation.
+This repository presents a complete workflow for object classification using radar range-Doppler spectrograms and deep learning. The goal is to distinguish between cars, drones, and people using frequency-modulated continuous wave (FMCW) radar data, which is particularly useful in surveillance, security, and smart mobility applications where vision-based sensors may fail.
+
+Starting from public radar datasets in CSV format, the pipeline includes automatic conversion of radar matrices into 2D spectrogram images for machine learning. Data is thoroughly organized and visualized to ensure quality and interpretability. All images are flattened into class-specific folders and then split into train, validation, and test sets for robust model evaluation.
+
+A ResNet50 convolutional neural network is trained from scratch on these spectrogram images, leveraging data augmentation and normalization for best results. The network achieves strong classification performance, as demonstrated by high test accuracy and detailed per-class metrics (precision, recall, F1-score). Training progress, validation curves, and a confusion matrix are visualized for transparent model assessment. The repository also includes scripts for data processing, training, evaluation, and visualization, making it easy to reproduce results or extend to new classes.
 
 ## Dataset
 
