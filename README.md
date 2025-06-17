@@ -6,17 +6,64 @@ Starting from public radar datasets in CSV format, the pipeline includes automat
 
 A ResNet50 convolutional neural network is trained from scratch on these spectrogram images, leveraging data augmentation and normalization for best results. The network achieves strong classification performance, as demonstrated by high test accuracy and detailed per-class metrics (precision, recall, F1-score). Training progress, validation curves, and a confusion matrix are visualized for transparent model assessment. The repository also includes scripts for data processing, training, evaluation, and visualization, making it easy to reproduce results or extend to new classes.
 
-## Dataset
+# Dataset Description
+This project utilizes the Real Doppler RAD-DAR Database, a large public dataset designed for radar-based object classification research.
 
-This project uses a **public FMCW radar dataset** (e.g., RAD-DAR or similar) containing thousands of labeled radar returns in CSV format, organized by object class (`Cars`, `Drones`, `People`). Each radar frame is a 2D range-Doppler matrix, saved per sample.
+The RAD-DAR database was collected using a state-of-the-art frequency-modulated continuous wave (FMCW) radar system (Digital Array Receiver, 8.75 GHz center frequency, 500 MHz bandwidth) developed by the UPM Microwave and Radar Group. The dataset contains over 17,000 samples spanning three object categories: Cars, Drones, and People.
 
-- Raw data: `/dataset/[class]/[subfolder]/xxx.csv`
-- PNGs for ML: `/images/[class]/[subfolder]/xxx.png`
+Each sample consists of a range-Doppler matrix—a 2D radar “image” that encodes both distance and velocity information—provided in CSV format. Samples are organized by object class and subdirectory, with each file containing a processed radar measurement for a single detection event. All data is manually labeled to ensure ground truth quality.
 
-**(Refer to the [RAD-DAR Database on Kaggle](https://www.kaggle.com/datasets/ignaciojeria/real-doppler-rad-dar-database) for more details.)**
+###  Dataset Access
+
+The RAD-DAR Database is freely available from Kaggle:
+
+🔗 [Real Doppler RAD-DAR Database – Kaggle](https://www.kaggle.com/datasets/iroldan/real-doppler-raddar-database)
+
+The dataset was collected and released by the UPM Microwave and Radar Group and is detailed in the associated documentation on the Kaggle page.
 
 ---
 
+###  Data Characteristics
+
+Each sample in the dataset is a range-Doppler matrix (radar “image”) representing a single detection event, saved as a CSV file.
+The data was collected with a frequency-modulated continuous wave (FMCW) radar (8.75 GHz, 500 MHz bandwidth) and includes three classes:
+
+**Cars**
+**Drones**
+**People**
+
+Total samples: Over 17,000
+Format: CSV, each encoding the radar matrix for one scene
+
+---
+
+###  File Format Overview
+
+| Item    | Description                           |
+|---------|---------------------------------------|
+| Rows    | Range (distance) bins                 |
+| Columns | Doppler (velocity) bins               |
+| Values  | Radar signal intensity (amplitude)    |
+| File    | `.csv` (one sample per file)          |
+
+All samples are organized by class and subfolder according to the experimental setup.
+
+
+---
+
+###  Data Split Strategy
+
+To ensure model robustness and prevent data leakage:
+
+- **Training & Validation Sets:**  
+  Randomly selected 70% (train) and 15% (validation) of samples per class
+
+- **Test Set:**  
+  Remaining 15% of samples per class
+
+All splits are stratified to preserve class balance and diversity.
+
+---
 ## Pipeline Overview
 
 ### 1. **CSV to PNG Conversion**
@@ -28,15 +75,12 @@ This project uses a **public FMCW radar dataset** (e.g., RAD-DAR or similar) con
 ### 3. **Flattening Class Folders**
 - All images are copied into a single folder per class (`flat_dataset/`), removing any deep subfolder hierarchy for fast access.
 
-### 4. **Dataset Split**
-- Images are randomly and reproducibly split into `train` (70%), `val` (15%), and `test` (15%) for each class.
-
-### 5. **Model Training**
+### 4. **Model Training**
 - A ResNet50 model is trained on the spectrograms (resized to 64x64).
 - Data augmentation and normalization are applied.
 - Training and validation curves are logged and plotted.
 
-### 6. **Evaluation**
+### 5. **Evaluation**
 - Final model is tested on the holdout test set.
 - Outputs: test accuracy, per-class metrics, confusion matrix, and visualizations of model predictions.
 
