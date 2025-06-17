@@ -86,6 +86,12 @@ All splits are stratified to preserve class balance and diversity.
 - Data augmentation and normalization are applied.
 - Training and validation curves are logged and plotted.
 
+  
+
+  ![image](https://github.com/user-attachments/assets/c81def22-06f6-493e-87a6-7fbb670d49dc)
+
+
+
 ### 5. **Evaluation**
 - Final model is tested on the holdout test set.
 - Outputs: test accuracy, per-class metrics, confusion matrix, and visualizations of model predictions.
