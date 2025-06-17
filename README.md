@@ -92,24 +92,26 @@ All splits are stratified to preserve class balance and diversity.
 
 ---
 
-## Results
+### Results
 
-| Metric         | Cars  | Drones | People | Avg.   |
-|----------------|-------|--------|--------|--------|
-| Precision      | 0.923 | 0.901  | 0.996  | 0.940  |
-| Recall         | 0.913 | 0.923  | 0.988  | 0.941  |
-| F1 Score       | 0.918 | 0.912  | 0.992  | 0.945  |
-| Test Accuracy  |         **0.944**                 |
+| Metric      | Cars   | Drones | People | Avg.  |
+|-------------|:------:|:------:|:------:|:-----:|
+| Precision   | 0.923  | 0.901  | 0.996  | 0.940 |
+| Recall      | 0.913  | 0.923  | 0.988  | 0.941 |
+| F1 Score    | 0.918  | 0.912  | 0.992  | 0.945 |
+| **Test Accuracy** |  |   |  **0.944**  |    
+
+
 
 
 
 ![image](https://github.com/user-attachments/assets/039fafdd-4f42-4f60-aee6-4436fce3f224)
 
 
-                Figure: Confusion Matrix
+                
 
 
-- **Confusion Matrix** and prediction visualizations are included in the notebook/scripts.
+
 
 ---
 
