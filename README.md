@@ -70,8 +70,8 @@ All splits are stratified to preserve class balance and diversity.
 - Radar matrices are normalized and converted to PNG images (`matplotlib.pyplot.imsave`) for easy deep learning ingestion.
 
 ### 2. **Data Visualization**
-- Random spectrograms are visualized to verify conversion and interpret class differences.
-- ![image](https://github.com/user-attachments/assets/77114e49-2684-42fa-a945-7ee506fea801)
+ Random spectrograms are visualized to verify conversion and interpret class differences.
+ ![image](https://github.com/user-attachments/assets/77114e49-2684-42fa-a945-7ee506fea801)
 
 
 ### 3. **Flattening Class Folders**
