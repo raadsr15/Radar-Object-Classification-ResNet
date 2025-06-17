@@ -127,3 +127,15 @@ All splits are stratified to preserve class balance and diversity.
     ```bash
     git clone https://github.com/raadsr15/Radar-Object-Classification-ResNet.git
     cd Radar-Object-Classification-ResNet
+
+2. **Install dependencies:**
+
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+3. Train the model and obtain results
+   
+```bash
+jupyter notebook Radar-Object-Classification-ResNet.ipynb
+```
