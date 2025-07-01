@@ -1,3 +1,6 @@
+![Flux_Dev_A_sleek_hightech_futuristic_background_for_a_radar_ob_2](https://github.com/user-attachments/assets/470d782b-b191-4af7-a829-5b9505d18e2f)
+
+
 # Radar Object Classification with ResNet50
 
 This repository presents a complete workflow for object classification using radar range-Doppler spectrograms and deep learning. The goal is to distinguish between cars, drones, and people using frequency-modulated continuous wave (FMCW) radar data, which is particularly useful in surveillance, security, and smart mobility applications where vision-based sensors may fail.
